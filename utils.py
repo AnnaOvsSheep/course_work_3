@@ -17,7 +17,7 @@ def get_operations(operations):
     """
     Функция вызова выполненных операций из списка операций
     :param operations: список операций
-    :return: экземпляр класса Operation
+    :return: экземпляры класса Operation
     """
     all_operations = []
     for operation in operations:
@@ -34,10 +34,12 @@ def get_operations(operations):
             all_operations.append(operation)
     return all_operations
 
+
 def get_operation_date(operation):
     """Вызов даты операции"""
     return operation.date
 
+
 def sort_by_date(operations):
-    """Сортировка списка операций по дате"""
+    """Сортировка операций по дате (по убыванию)"""
     return sorted(operations, key=get_operation_date, reverse=True)
