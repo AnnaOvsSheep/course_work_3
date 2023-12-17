@@ -16,7 +16,9 @@ class Operation:
 
     def convert_date(self, date):
         """Конвертация даты"""
-        return datetime.fromisoformat(date)
+        convert_date = datetime.fromisoformat(date)
+        formatted_date = datetime.strftime(convert_date, "%d.%m.%Y")
+        return formatted_date
 
     def convert_private_number(self, private_number):
         """
@@ -37,7 +39,7 @@ class Operation:
 
     def __str__(self):
         return (
-            f'{datetime.strftime(self.date, "%d.%m.%Y")} Перевод организации \n'
+            f'{self.date} {self.description} \n'
             f'{self.whence} -> {self.to} \n'
             f'{self.operation_amount["amount"]} {self.operation_amount["currency"]["name"]}'
         )
